@@ -48,7 +48,7 @@ spec:
         version: 0.0.1
       sources:
       - access:
-          commit: ff8901b9c0e3b65668d81c391a9898ad2c78168a
+          commit: 185990585dde0186569f5fed955c4322c23e8456
           ref: refs/heads/main
           repoUrl: https://github.com/pbochynski/istio
           type: github

@@ -37,20 +37,19 @@ spec:
 EOF
 ```
 
-Create personal github token with packages write permission and put it in environment variable:
-```
-export GITHUB_TOKEN=......your--token---here.....
-```
-
 Download kyma cli:
 ```
 curl -Lo kyma https://storage.googleapis.com/kyma-cli-unstable/kyma-darwin # kyma-linux, kyma-linux-arm, kyma.exe, or kyma-arm.exe
 chmod +x kyma
 ```
+Login to your docker registry:
+```
+docker login ghcr.io
+```
 
 Create module template (replace pbochynski with your github handle):
 ```
-kyma alpha create module -n kyma-project.io/istio --version 0.0.1 --registry ghcr.io/pbochynski/istio-module -c pbochynski:$GITHUB_TOKEN -w -r istio:helm-chart@./charts/istio -r config:yaml@./config.yaml --default-cr ./istio-operator-cr.yaml -o istio-module-template.yaml
+kyma alpha create module -n kyma-project.io/istio --version 0.0.2 --registry ghcr.io/pbochynski/istio-module -r istio:helm-chart@./charts/istio -r config:yaml@./config.yaml --default-cr ./istio-operator-cr.yaml -o istio-module-template.yaml
 ```
 
 Go to your [github packages](https://github.com/pbochynski?tab=packages) and make the istio-module public.
